@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-    <form action="{{ url_for('login') }}" method="POST">
+    <form action="/dashboard" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Username</label>
           <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
@@ -17,8 +17,12 @@
           <label for="exampleInputPassword1">Password</label>
           <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button value="dashboard" type="submit" class="btn btn-primary">Submit</button>
     </form> 
+    <!-- <form action="{{ url_for('dashboard') }}">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form> -->
+    
     </div>
 </body>
 </html>
