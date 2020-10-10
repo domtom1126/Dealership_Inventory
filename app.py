@@ -1,10 +1,8 @@
 from flask import Flask, render_template, request, url_for, flash, redirect, session
 import sqlite3
 from datetime import timedelta
-from flask.ext.bcrypt import Bcrypt
 
 app = Flask(__name__)
-bcrypt = Bcrypt(app)
 conn = sqlite3.connect('user.db')
 
 app.secret_key='secret'
