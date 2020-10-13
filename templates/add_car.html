@@ -9,7 +9,7 @@
 <body style="background-color: lightslategrey;">
     <h1>Add Car</h1>
     <div class="container">
-    <form action="/add_car" method="POST">
+    <form action="/car_added" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Make</label>
           <input name="make" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Make">
@@ -30,8 +30,17 @@
           <label>Price</label>
           <input name="price" type="text" class="form-control" id="exampleInputPassword1" placeholder="Price">
         </div>
-        <button value="add_car" type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+          <label>Mileage</label>
+          <input name="mileage" type="text" class="form-control" id="exampleInputPassword1" placeholder="Mileage">
+        </div>
+        <div class="form-group">
+          <label>VIN</label>
+          <input name="vin" type="text" class="form-control" id="exampleInputPassword1" placeholder="VIN">
+        </div>
+        <button value="car_added" type="submit" class="btn btn-primary">Submit</button>
     </div>
     </form>
+    <a href="/logout">Logout</a>
 </body>
 </html>
