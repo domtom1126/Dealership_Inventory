@@ -8,14 +8,27 @@
 </head>
 <body style="background-color: lightslategrey;">
     <div class="container">
-        <h1>Welcome {{ username }}</h1>
-        <h1>This is the dashboard</h1>
-        <!-- Add to database -->
-        <a type="button" class="btn btn-primary btn-lg btn-block" href="/add_car">Add Car</a>
-        <!-- Delete from databasdf -->
-        <a type="button" class="btn btn-secondary btn-lg btn-block" href="/sell_car">Sell Cars</a>
+        {% if 'None' in username_form %}
+            <h1>Welcome back to the dash</h1>
 
-        <a type="button" class="btn btn-secondary btn-lg btn-block" href="/view_lot">View Cars on Lot</a>
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="/add_car">Add Car</a>
+            <!-- Delete from databasdf -->
+            <a type="button" class="btn btn-secondary btn-lg btn-block" href="/sell_car">Sell Cars</a>
+
+            <a type="button" class="btn btn-secondary btn-lg btn-block" href="/view_lot">View Cars on Lot</a>
+
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="/logout">Log Out</a>
+        <!-- Add to database -->
+        {% else %}
+           <h1>Welcome to the dash {{ username_form }}</h1>
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="/add_car">Add Car</a>
+            <!-- Delete from databasdf -->
+            <a type="button" class="btn btn-secondary btn-lg btn-block" href="/sell_car">Sell Cars</a>
+
+            <a type="button" class="btn btn-secondary btn-lg btn-block" href="/view_lot">View Cars on Lot</a>
+
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="/logout">Log Out</a>
+        {% endif %}
     </div>
 </body>
 </html>
