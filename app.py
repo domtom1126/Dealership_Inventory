@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect, ses
 import sqlite3
 from datetime import timedelta, datetime
 from flask_sqlalchemy import SQLAlchemy
-from passlib.hash import sha256_crypt
+
 
 app = Flask(__name__)
 
@@ -52,8 +52,7 @@ def dashboard():
             db.session.commit()
     elif username_form == None:
         print('returned none')
-        hello = 'hello'
-        return render_template('dashboard.html', hello = hello)
+        return render_template('dashboard.html')
     return render_template('dashboard.html' , username_form = username_form)
 
 @app.route('/add_car', methods=['POST', 'GET'])

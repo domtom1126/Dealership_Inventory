@@ -6,7 +6,32 @@
     <title>Document</title>
 </head>
 <body>
-{{ display_all }}
-{{ display_id }}
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Color</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in display_all %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/dashboard">dashboard</a>
+    <a href="/add_car">add car</a>
+    <a href="/sell_car">sell car</a>
 </body>
 </html>
