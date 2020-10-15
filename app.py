@@ -43,14 +43,18 @@ def logout():
 
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
-    session.pop('username', None)
+    username_form = request.form.get('username')
+    password_form = request.form.get('password')
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        user_login = User(username = username, password = password)
-        db.session.add(user_login)
-        db.session.commit()
-    return render_template('dashboard.html' , username = username)
+        if username_form != None:
+            user_login = User(username = username_form, password = password_form)
+            db.session.add(user_login)
+            db.session.commit()
+    elif username_form == None:
+        print('returned none')
+        hello = 'hello'
+        return render_template('dashboard.html', hello = hello)
+    return render_template('dashboard.html' , username_form = username_form)
 
 @app.route('/add_car', methods=['POST', 'GET'])
 def add_car():
@@ -75,15 +79,18 @@ def car_added():
 def sell_car():
     return render_template('sell_car.html')
 
+#getting error when hitting submit  on sell_car "Vin referenced before assignment"
 @app.route('/car_sold', methods=['POST', 'GET'])
 def car_sold():
+    #what should this be? needs to refer to inventory table and get the first value in ID Column
+    select_vin = Inventory.query.filter_by(vin).first()
     if request.method == 'POST':
         vin = request.form['vin']
-        select_vin = Inventory.query.filter_by(vin=vin).first()
         db.session.delete(select_vin)
         db.session.commit()
     return render_template('car_sold.html', vin = vin)
 
+# Still need to make sqlalchemy format
 @app.route('/view_lot', methods=['POST', 'GET'])
 def view_lot():
     conn = sqlite3.connect('inventory.db')
