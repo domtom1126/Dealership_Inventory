@@ -78,15 +78,15 @@ def car_added():
 def sell_car():
     return render_template('sell_car.html')
 
-#getting error when hitting submit  on sell_car "Vin referenced before assignment"
 @app.route('/car_sold', methods=['POST', 'GET'])
 def car_sold():
-    #what should this be? needs to refer to inventory table and get the first value in ID Column
-    select_vin = Inventory.query.filter_by(vin).first()
     if request.method == 'POST':
         vin = request.form['vin']
-        db.session.delete(select_vin)
-        db.session.commit()
+        conn = sqlite3.connect('user.sqlite3')
+        cur = conn.cursor()
+        cur.execute('DELETE FROM inventory WHERE vin = {}'.format(vin))
+        conn.commit()
+        conn.close()
     return render_template('car_sold.html', vin = vin)
 
 # Still need to make sqlalchemy format
