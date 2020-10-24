@@ -6,36 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="background-color: lightslategrey;">
-    <h1>Sell Car</h1>
-    <div class="container">
+<body style="background-color: slategrey;">
+    <h1 class="text-center mt-5">Sell Car</h1>
+    <div class="container text-center mt-3">
+    <p class="lead">Type the VIN of the car you would like to sell</p>
+    <div class="container jumbotron">
     <form action="/car_sold" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Vin</label>
           <input name="vin" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Make">
         </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Make</label>
-          <input name="make" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Make">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Model</label>
-          <input name="model" type="text" class="form-control" id="exampleInputPassword1" placeholder="Model">
-        </div>
-        <div class="form-group">
-            <label>Year</label>
-            <input name="year" type="text" class="form-control" id="exampleInputPassword1" placeholder="Year">
-        </div>
-        <div class="form-group">
-          <label>Color</label>
-          <input name="color" type="text" class="form-control" id="exampleInputPassword1" placeholder="Color">
-        </div>
-        <div class="form-group">
-          <label>Price sold at</label>
-          <input name="price" type="text" class="form-control" id="exampleInputPassword1" placeholder="Price">
-        </div>
-        <button value="car_sold" type="submit" class="btn btn-primary">Submit</button>
     </div>
     </form>
+    </div>
 </body>
 </html>

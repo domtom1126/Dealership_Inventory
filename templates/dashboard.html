@@ -7,19 +7,21 @@
     <title>Login</title>
 </head>
 <body style="background-color: lightslategrey;">
-    <div class="container">
+    <div class="cominter text-center">
         {% if 'None' in username_form %}
             <h1>Welcome back to the dash</h1>
         {% else %}
-            <h1>Welcome to the dash {{ username_form }}</h1>
+            <h1 class="lead display-4">Welcome to the dash, {{ username_form }}</h1>
         {% endif %}
+            <div style="background-color: #FFFCF2;" class="jumbotron container">
             <a type="button" class="btn btn-primary btn-lg btn-block" href="/add_car">Add Car</a>
             <!-- Delete from databasdf -->
-            <a type="button" class="btn btn-secondary btn-lg btn-block" href="/sell_car">Sell Cars</a>
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="/sell_car">Sell Cars</a>
 
-            <a type="button" class="btn btn-secondary btn-lg btn-block" href="/view_lot">View Cars on Lot</a>
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="/view_lot">View Cars on Lot</a>
 
             <a type="button" class="btn btn-primary btn-lg btn-block" href="/logout">Log Out</a>
+        </div>
     </div>
 </body>
 </html>
