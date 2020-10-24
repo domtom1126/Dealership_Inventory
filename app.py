@@ -72,7 +72,7 @@ def car_added():
         add_car_db = Inventory(make = make, model = model, year = year, color = color, price = price, mileage = mileage, vin = vin)
         db.session.add(add_car_db)
         db.session.commit()
-    return render_template('car_added.html', make = make, model = model, year = year, color = color, price = price)
+    return render_template('car_added.html', make = make, model = model, year = year, color = color, price = price, vin = vin)
 
 @app.route('/sell_car', methods=['POST', 'GET'])
 def sell_car():
@@ -97,5 +97,6 @@ def view_lot():
     select_all = cur.execute('SELECT * FROM inventory')
     display_all = select_all.fetchall()
     return render_template('view_lot.html', display_all=display_all)
+
 if __name__ == '__main__':
     app.run(debug=True)
